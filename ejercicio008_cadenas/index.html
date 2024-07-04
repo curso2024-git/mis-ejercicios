@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            <input type="text" id="email" placeholder="email">
+        </div>
+        <div>
+            <input type="text" id="password" placeholder="password">
+        </div>
+        <div>
+            <button onclick="validarEMAIL()">VALIDAR EMAIL</button>
+        </div>
+        <div>
+            <button onclick="validarPSW()">VALIDAR PASSWORD</button>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    function validarEMAIL(){
+
+        let email = document.getElementById('email').value;
+
+        if(email.indexOf('@')<0){
+            alert("falta @");
+        };
+
+        if(email.indexOf('.')<0){
+            alert("falta .");
+        };
+
+        if(email.length < 5){
+            alert("Tiene que tener mas de 5 caracteres");
+        };
+
+
+
+        console.log(email);
+    }
+
+    function validarPSW(){
+
+        let psw = document.getElementById('password').value;
+
+        if(psw.indexOf('a')>0 || psw.indexOf('A')>0){
+            alert("no debe contener a ni A");
+        };
+
+        if(psw.length < 5){
+            alert("Tiene que tener mas de 5 caracteres");
+        };
+
+        if(psw.indexOf('IBM')>0 || psw.indexOf('BMI')>0 || psw.indexOf('BIM')>0 || psw.indexOf('MIB')>0){
+            alert("no debe contener NINGUNA COMBINACION CON IBM");
+        };
+
+
+        console.log(psw);
+    }
+
+
+</script>

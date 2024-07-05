@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div>
         <div>
             <input type="text" id="email" placeholder="email">
+            <span class="error" id="error-email"></span>
         </div>
         <div>
             <input type="text" id="password" placeholder="password">
+            <span class="error" id="error-psw"></span>
         </div>
         <div>
             <button onclick="validarEMAIL()">VALIDAR EMAIL</button>
@@ -27,19 +30,32 @@
 <script>
     function validarEMAIL(){
 
+        //document.querySelector("#error-email").innerHTML="";
+
         let email = document.getElementById('email').value;
 
         if(email.indexOf('@')<0){
-            alert("falta @");
-        };
+            //alert("falta @");
+            //document.querySelector("#error-email").innerHTML="El mail no contiene @";
+            escribirError("El mail no contiene @","#error-email");
+        }
 
-        if(email.indexOf('.')<0){
-            alert("falta .");
-        };
+        else if(email.indexOf('.')<0){   //email.include(".")==false
+            //alert("falta .");
+            //document.querySelector("#error-email").innerHTML="El mail no contiene .";
+            escribirError("El mail no contiene .","#error-email");
+        }
 
-        if(email.length < 5){
-            alert("Tiene que tener mas de 5 caracteres");
-        };
+        else if(email.length < 5){
+            //alert("Tiene que tener mas de 5 caracteres");
+            //document.querySelector("#error-email").innerHTML="El mail debe contener mas de 5 caracteres";
+            escribirError("El mail debe contener mas de 5 caracteres","#error-email");
+        }
+
+        else {
+            //document.querySelector("#error-email").innerHTML="";
+            escribirError("","#error-email");
+        }
 
 
 
@@ -48,23 +64,40 @@
 
     function validarPSW(){
 
+        //document.querySelector("#error-psw").innerHTML="";
+
         let psw = document.getElementById('password').value;
 
-        if(psw.indexOf('a')>0 || psw.indexOf('A')>0){
-            alert("no debe contener a ni A");
-        };
+        if(psw.indexOf('a')>0 || psw.indexOf('A')>0){   //psw.toUpperCase().include("A") -> Method chaining
+            //alert("no debe contener a ni A");
+            escribirError("no debe contener a ni A","#error-psw");
+        }
 
-        if(psw.length < 5){
-            alert("Tiene que tener mas de 5 caracteres");
-        };
+        else if(psw.indexOf('IBM')>0 || psw.indexOf('BMI')>0 || psw.indexOf('BIM')>0 || psw.indexOf('MIB')>0 || psw.indexOf('IMB')>0){
+            //psw.toUpperCase().includes("IBM")
+            //alert("no debe contener NINGUNA COMBINACION CON IBM");
+            //else if(/[Ii][Bb][Mm]/.test(pwd))
+            escribirError("no debe contener NINGUNA COMBINACION CON IBM","#error-psw");
+        }
 
-        if(psw.indexOf('IBM')>0 || psw.indexOf('BMI')>0 || psw.indexOf('BIM')>0 || psw.indexOf('MIB')>0){
-            alert("no debe contener NINGUNA COMBINACION CON IBM");
-        };
+        else if(psw.length < 7){
+            //alert("Tiene que tener mas de 5 caracteres");
+            escribirError("Tiene que tener mas de 5 caracteres","#error-psw");
+        }
+
+        else {
+            document.querySelector("#error-psw").innerHTML="";
+        }
 
 
         console.log(psw);
     }
+
+    function escribirError(mensaje, identificador){
+
+        document.querySelector(identificador).innerHTML=mensaje;
+    }
+
 
 
 </script>

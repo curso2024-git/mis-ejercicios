@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+    <div class="cover"><img src="./images/cover1.jpg"></div>
+    <div class="cover"><img src="./images/cover2.jpg"></div>
+    <div class="cover"><img src="./images/cover3.jpg"></div>
+    <div class="cover"><img src="./images/cover4.jpg"></div>
+    <div class="cover"><img src="./images/cover5.jpg"></div>
+    <div class="cover"><img src="./images/cover6.jpg"></div>
+</div>
+    <div>
+        <button id="botonMas" onclick="aumentar()">+</button>
+        <button id="botonMenos">-</button>
+    </div>
+</body>
+
+</html>
+<script>
+
+    let ancho = 200;
+
+    function aumentar() {
+
+
+
+        //OBTIENE LAS CLASES -> SERIA UN ARRAY
+        const caratulas = document.getElementsByClassName("cover");
+        console.log(caratulas.length);
+
+        Array.from(caratulas).forEach(caratula => {
+            //    console.log(caratula);
+            ancho++;
+            //caratula.style.width=ancho+"px";  //CONCATENANDO CADENAS
+            caratula.style.width = `${ancho}px`;  //INTERPOLACION DE CADENAS
+
+        });
+    }
+
+    document.querySelector("#botonMenos").addEventListener("click", function () {
+
+        const caratulas = document.getElementsByClassName("cover");
+
+        Array.from(caratulas).forEach(caratula => {
+            //    console.log(caratula);
+            ancho--;
+            //caratula.style.width=ancho+"px";  //CONCATENANDO CADENAS
+            caratula.style.width = `${ancho}px`;  //INTERPOLACION DE CADENAS
+
+        });
+
+    })
+
+    //USANDO FUNCION FLECHA
+    //document.querySelector("#botonMenos").addEventListener("click",()=>{
+    //})
+
+    //OTRA FORMA
+    //document.querySelector("#botonMenos").addEventListener("click", aumentar())
+
+
+
+</script>

@@ -1,0 +1,15 @@
+1. Crear una página html que tenga 2 DIVS de 100 x 100 px
+2. La página también tendrá 2 INPUTS de tipo number
+3. La página también tendrá un boton con el texto "comprobar"
+4. Crear un firchero .js con las funciones:
+    4.1 comprobarSensor1()
+    4.2 comprobarSensor2()
+5. Crear un fichero css :
+    5.1 Clase verde -> Atributo background-color : "green"
+    5.2 Clase rojo -> Atributo background-color : "red"
+6. Al pulsar el boton comprobar:
+    6.1 Si el valor de alguno de los dos input es <10 ==> 
+        alert con el mensaje "error"
+    6.2 Si no, mensaje "ok"
+
+    

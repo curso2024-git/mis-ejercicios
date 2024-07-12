@@ -1,0 +1,15 @@
+#playa {
+    padding: 20px;
+    float: left;
+    width: 300px;
+    height: 400px;
+    background-color: rgb(3, 76, 148);
+    color: white;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+playa img {
+    margin-top: 30px;
+    width: 100%;
+}

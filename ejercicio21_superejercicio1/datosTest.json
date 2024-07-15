@@ -1,0 +1,23 @@
+[
+{
+    "titulo" : "call of Duty",
+    "plataforma" : "PS4",
+    "fecha" : 1999,
+    "localidad" : {
+        "ciudad" : "Los Angeles",
+        "pais" : "Estados Unidos"
+    }
+},
+{
+    "titulo" : "call of xxx",
+    "plataforma" : "PS4",
+    "fecha" : 1999,
+    "localidad" : {
+        "ciudad" : "Los Angeles",
+        "pais" : "Estados Unidos"
+    }
+}
+
+
+
+]

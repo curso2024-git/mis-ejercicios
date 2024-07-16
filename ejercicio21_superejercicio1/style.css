@@ -1,0 +1,74 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Estilos para el contenedor de las fichas */
+#musicas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Estilos para cada ficha de música */
+.musica {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.2s;
+    overflow: hidden;
+}
+
+.musica:hover {
+    transform: scale(1.02);
+}
+
+/* Estilos para el título y el género */
+.titulo, .genero {
+    font-size: 1.2em;
+    color: #5a1010;
+    margin: 10px;
+    font-weight: bolder;
+}
+
+.genero {
+    color: #5a1010;
+}
+
+/* Estilos para la portada */
+.portada {
+    width: 100%;
+    height: auto;
+}
+
+.portada img {
+    width: 100%;
+    height: auto;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    
+}
+
+/* Diseño responsivo */
+@media (max-width: 600px) {
+    #musicas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .musica {
+        width: 80%;
+    }
+}

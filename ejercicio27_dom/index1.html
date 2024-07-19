@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let encabezado = document.createElement("h1");
+    document.querySelector("body").appendChild(encabezado);
+
+    let textoEncabezado = document.createTextNode("Secciòn principal");
+    encabezado.appendChild(textoEncabezado);
+
+    //Creacion de un atributo creando el elemento
+    let atributoEncabezado = document.createAttribute("class");
+    atributoEncabezado.value = "rojo";
+    encabezado.setAttributeNode(atributoEncabezado);
+    //Creacion del atributo mediante el método setAttribute
+    encabezado.setAttribute("id", "encabezado");
+
+    setInterval(() => {
+        //Asi se hacia en los 80
+        //if (atributoEncabezado.value === "rojo") {
+        //    atributoEncabezado.value = "verde";
+        //} else {
+        //    atributoEncabezado.value = "rojo";
+        //}
+
+        //Asi se hace en la actualidad
+        atributoEncabezado.value = (atributoEncabezado.value === "rojo") ? "verde" : "rojo";
+
+    }, 300)
+
+</script>

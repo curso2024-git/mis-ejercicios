@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <span id="mensaje">Introduce el nombre : </span>
+    <input type="text" id="nombre" placeholder="nombre">
+
+    <!--
+    <p>Lorem ipsum dolor sit amet, consectetur <span class="rojo">adipisicing</span> elit. Nesciunt, neque? Incidunt odit 
+       officia qui deserunt numquam natus suscipit? Possimus ab aliquid iste consectetur aspernatur 
+       architecto aliquam fugiat numquam recusandae eum.</p>
+    -->
+</body>
+
+</html>
+<script>
+    document.querySelector("#nombre").addEventListener("keyup", (evento) => {
+        //console.log("loquesea");
+        //console.log(evento.key); //tecla pulsada
+        const texto = document.querySelector("#nombre").value;
+        if (texto.length >= 5) {
+
+            document.querySelector("#mensaje").classList.add("rojo");
+        }
+        else {
+            document.querySelector("#mensaje").classList.remove("rojo");
+        }
+
+
+        if (texto.length >= 7) {
+
+            document.querySelector("#mensaje").classList.add("negrita");
+        }
+        else {
+            document.querySelector("#mensaje").classList.remove("negrita");
+        }
+
+        if (texto.length >= 10) {
+
+            document.querySelector("#mensaje").classList.replace("rojo", "verde");
+        }
+        else {
+            document.querySelector("#mensaje").classList.remove("verde", "rojo");
+        }
+
+
+
+    })
+</script>

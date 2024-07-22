@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurantes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <input type="text" id="iFiltro" placeholder="Filtrar">
+    </div>
+    <div id="monumentos">
+        <!--
+        <div class="monumento">
+            <div class="imagen">
+                <img src="./images/r1.jpg">
+            </div>
+            <div class="descripcion">
+                <div class="address">Alfredo's bbq</div>
+                <div class="description">Americano</div>
+                <div class="title">30€</div>
+                <div class="subcategoria">30€</div>
+                <div><hr/></div>
+            </div>
+        </div>
+        -->
+    </div>
+</body>
+
+</html>
+<script src="scripts/http-client.js"></script>
+<script src="scripts/generadorfilas.js"></script>
+<script>
+    var arrayMonumentos;
+
+    document.querySelector("#iFiltro").addEventListener("keyup", () => {
+        console.log("p1");
+        let texto = document.querySelector("#iFiltro").value;
+        let monumentosFiltrados = arrayMonumentos.filter((monumento) => {
+            return monumento.title.includes(texto);
+        });
+        document.querySelector("#monumentos").innerHTML = "";
+        monumentosFiltrados.forEach(monumento => {
+            crearFila(monumento.image_uri,
+                monumento.address,
+                monumento.description,
+                monumento.title,
+                monumento.subcategoria);
+        });
+
+    })
+    //https://datos.vigo.org/data/turismo/poi-monumentos-es.json
+    doGetHTTPRequest(
+        "https://datos.vigo.org", "443", "/data/turismo/poi-monumentos-es.json",
+        procesarMonumentos, procesarError);
+
+    function procesarMonumentos(texto) {
+        arrayMonumentos = JSON.parse(texto);
+        //arrayRestaurantes = objetoServidor;
+        arrayMonumentos.forEach(monumento => {
+            crearFila(monumento.image_uri,
+                monumento.address,
+                monumento.description,
+                monumento.title,
+                monumento.subcategoria);
+        });
+    }
+    function procesarError(err) {
+        console.error(err);
+    }
+</script>

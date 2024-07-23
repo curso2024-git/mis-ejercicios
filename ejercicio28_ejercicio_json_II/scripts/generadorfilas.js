@@ -1,4 +1,4 @@
-function crearFila(imagen, address, description, title, subcategoria) {
+function crearFila(imagen, address, description, title, subcategoria, postcode) {
     //<div class="monumento">
     let divMonumento = document.createElement("div");
     divMonumento.classList.add("monumento");
@@ -35,6 +35,10 @@ function crearFila(imagen, address, description, title, subcategoria) {
     divSubcategoria.classList.add("subcategoria");
     divSubcategoria.appendChild(document.createTextNode(subcategoria));
     divDescripcion.appendChild(divSubcategoria);
+    let divPostCode = document.createElement("div");
+    divPostCode.classList.add("postcode");
+    divPostCode.appendChild(document.createTextNode(postcode));
+    divDescripcion.appendChild(divPostCode);
     //<hr>
     document.querySelector("#monumentos").appendChild(document.createElement("hr"));
 }

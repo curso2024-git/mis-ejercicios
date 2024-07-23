@@ -4,14 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurantes</title>
+    <title>Monumentos de Vigo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div>
+        <span>Filtro por titulo : </span>
         <input type="text" id="iFiltro" placeholder="Filtrar">
+
+        <span>Filtro por código postal : </span>
+        <select name="select" id="iFiltroPostCode" placeholder="Filtrar por codigo postal"></select>
+
     </div>
+
     <div id="monumentos">
         <!--
         <div class="monumento">
@@ -38,7 +44,7 @@
 
     document.querySelector("#iFiltro").addEventListener("keyup", () => {
         console.log("p1");
-        let texto = document.querySelector("#iFiltro").value;
+        let texto = document.querySelector("#iFiltro").value.toUpperCase();
         let monumentosFiltrados = arrayMonumentos.filter((monumento) => {
             return monumento.title.includes(texto);
         });
@@ -48,10 +54,31 @@
                 monumento.address,
                 monumento.description,
                 monumento.title,
-                monumento.subcategoria);
+                monumento.subcategoria,
+                monumento.postcode);
         });
 
     })
+
+    console.log(arrayMonumentos);
+
+    let selectOption = document.querySelector("#iFiltroPostCode");
+    let option = document.createElement("option");
+    option.classList.add("cod1");
+    option.appendChild(document.createTextNode("cod1"));
+    selectOption.appendChild(option);
+
+
+
+
+    /*
+    let divMonumento = document.createElement("div");
+    divMonumento.classList.add("monumento");
+    document.querySelector("#monumentos").appendChild(divMonumento);
+    <option value="value2" selected>Value 2</option>
+    */
+
+
     //https://datos.vigo.org/data/turismo/poi-monumentos-es.json
     doGetHTTPRequest(
         "https://datos.vigo.org", "443", "/data/turismo/poi-monumentos-es.json",
@@ -65,10 +92,22 @@
                 monumento.address,
                 monumento.description,
                 monumento.title,
-                monumento.subcategoria);
+                monumento.subcategoria,
+                monumento.postcode);
         });
     }
     function procesarError(err) {
         console.error(err);
     }
+
+
+    const arrayOptions = [];
+
+    console.log(arrayMonumentos);
+
+    //arrayMonumentos.forEach(monumento => {
+    //    arrayOptions.push(monumento.postcode);
+    //});
+
+
 </script>
